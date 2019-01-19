@@ -3,9 +3,6 @@ import re
 import redis
 
 
-uri = 'https://mycursor.slack.com/messages/CFAJE9XHA/?asf12ASDqwe=+123'
-
-
 def parse_slack_link(url: str):
 
     match = re.search(r'[^https?\://[a-z0-9\.-]{0,21}slack\.com/messages/[a-zA-Z0-9]{0,}[^.\/]{0,}', url)
