@@ -1,7 +1,7 @@
 import json
 from flask import Flask, request, jsonify
 from flask_sslify import SSLify
-from redis_db.getter_setter import get_all, get_link_on_slack, redis_main
+from redis_db.redis_main import redis_main
 
 
 app = Flask(__name__)
