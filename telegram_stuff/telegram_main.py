@@ -2,10 +2,13 @@ import json
 from flask import Flask, request, jsonify
 from flask_sslify import SSLify
 from redis_db.redis_main import redis_main
+from telegram_stuff.settings import webhook_url
 
 
 app = Flask(__name__)
 ssl = SSLify(app)
+
+print(webhook_url)
 
 
 def write_json(data, filename='answer.json'):
@@ -19,7 +22,7 @@ def get_json():
         return data
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
         r = request.get_json()
