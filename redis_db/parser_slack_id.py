@@ -56,7 +56,8 @@ def get_link_on_slack(json_dict: dict):
 
                 if check_correct_form:
                     slack_id = parse_slack_link(slack_link)  # parse link
-
+                    telegram_message_id = json_dict['channel_post']['message_id']
+                    delete_slack_link_message(telegram_chat_id, telegram_message_id)
                     return [telegram_chat_id, slack_id]
 
                 else:
@@ -73,7 +74,7 @@ def get_link_on_slack(json_dict: dict):
         return None
 
 
-def delete_slack_link(telegram_chat_id: int, telegram_message_id: int):
+def delete_slack_link_message(telegram_chat_id: int, telegram_message_id: int):
     """
     Delete message with slack link to not make a mess in telegram channel
 
